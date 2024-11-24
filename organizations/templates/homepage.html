@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Organizations</h1>
+<ul>
+    {% for org in organizations %}
+    <li>
+        {{ org.name }}
+        <form action="{% url 'organization_users' org_id=org.id %}" method="get" style="display:inline;">
+            <button type="submit">Click here</button>
+        </form>
+    </li>
+
+    {% endfor %}
+</ul>
+
+{% endblock %}
